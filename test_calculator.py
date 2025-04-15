@@ -39,21 +39,20 @@ class TestCalculator(unittest.TestCase):
     ##########################
     
     # Partner 1
-    def test_log_invalid_argument(self): # 1 assertion
-        # call log function inside, example:
-        # with self.assertRaises(<INSERT_ERROR_TYPE>):
-        #     logarithm(0, 5)
-        pass
+    def test_log_invalid_argument(self):  # 1 assertion
+        with self.assertRaises(ValueError):
+            log(10, -5)  # log of a negative number is invalid
 
-    def test_hypotenuse(self): # 3 assertions
-        pass
+    def test_hypotenuse(self):  # 3 assertions
+        self.assertAlmostEqual(math.hypot(3, 4), 5.0)
+        self.assertAlmostEqual(math.hypot(5, 12), 13.0)
+        self.assertAlmostEqual(math.hypot(0, 7), 7.0)
 
-    def test_sqrt(self): # 3 assertions
-        # Test for invalid argument, example:
-        # with self.assertRaises(<INSERT_ERROR_TYPE>):
-        #    square_root(NUM)
-        # Test basic function
-        pass
+    def test_sqrt(self):  # 3 assertions
+        self.assertAlmostEqual(math.sqrt(4), 2.0)
+        self.assertAlmostEqual(math.sqrt(9), 3.0)
+        with self.assertRaises(ValueError):
+            math.sqrt(-1)
     ##########################
 
 # Do not touch this
